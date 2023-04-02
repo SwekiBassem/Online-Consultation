@@ -1,0 +1,138 @@
+<app-navbar></app-navbar>
+<h3 class="my-3 font-weight-medium text-uppercase text-center">
+  Book Consultation
+</h3>
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+  <div class="bg-white">
+    <div class="form-row border-bottom p-4">
+      <label class="text-inverse font-12 text-uppercase"
+        >First Name<span class="text-danger">*</span></label
+      >
+      <input
+        type="text"
+        class="border-0 p-0 font-14 form-control"
+        placeholder="Enter your first name"
+        [(ngModel)]="firstname"
+        formControlName="fname"
+        [ngClass]="{ 'is-invalid': submitted && MyformControl.fname.errors }"
+      />
+      <div *ngIf="submitted && MyformControl.fname.errors" class="invalid-feedback mb">
+        <div *ngIf="MyformControl.fname.errors.required">First name is required.</div>
+      </div>
+    </div>
+    <div class="form-row border-bottom p-4">
+      <label class="text-inverse font-12 text-uppercase"
+        >Last Name<span class="text-danger">*</span></label
+      >
+      <input
+        type="text"
+        class="border-0 p-0 font-14 form-control"
+        placeholder="Enter your last name"
+        [(ngModel)]="lastname"
+        formControlName="lname"
+        [ngClass]="{ 'is-invalid': submitted && MyformControl.fname.errors }"
+      />
+      <div *ngIf="submitted && MyformControl.lname.errors" class="invalid-feedback mb">
+        <div *ngIf="MyformControl.lname.errors.required">Last name is required.</div>
+      </div>
+    </div>
+    <div class="form-row border-bottom p-4">
+      <label class="text-inverse font-12 text-uppercase"
+        >Email Address<span class="text-danger">*</span></label
+      >
+      <input
+        type="email"
+        class="border-0 p-0 font-14 form-control"
+        [(ngModel)]="email"
+        placeholder="Enter your email address"
+        formControlName="email"
+        [ngClass]="{ 'is-invalid': submitted && MyformControl.email.errors }"
+      />
+      <div *ngIf="submitted && MyformControl.email.errors" class="invalid-feedback mb">
+        <div *ngIf="MyformControl.email.errors.required">Email is required.</div>
+        <div *ngIf="MyformControl.email.errors.email">Email is invalid</div>
+      </div>
+    </div>
+    <div class="form-row border-bottom p-4">
+      <label class="text-inverse font-12 text-uppercase"
+        >Password<span class="text-danger">*</span></label
+      >
+      <input
+        type="password"
+        class="border-0 p-0 font-14 form-control"
+        [(ngModel)]="password"
+        placeholder="Enter your password"
+        formControlName="password"
+        [ngClass]="{ 'is-invalid': submitted && MyformControl.password.errors }"
+      />
+      <div *ngIf="submitted && MyformControl.password.errors" class="invalid-feedback mb">
+        <div *ngIf="MyformControl.password.errors.required">Password is required.</div>
+        <div *ngIf="MyformControl.password.errors.minlength">Password must be at least 8 characters long</div>
+
+    </div>
+    </div>
+    <div class="form-row border-bottom p-4">
+      <label class="text-inverse font-12 text-uppercase"
+        >Phone Number<span class="text-danger">*</span></label
+      >
+      <input
+        type="number"
+        class="border-0 p-0 font-14 form-control"
+        placeholder="Enter your phone number"
+        formControlName="phone"
+        [(ngModel)]="phone"
+        [ngClass]="{ 'is-invalid': submitted && MyformControl.phone.errors }"
+      />
+      <div *ngIf="submitted && MyformControl.phone.errors" class="invalid-feedback mb">
+        <div *ngIf="MyformControl.phone.errors.required">Phone is required.</div>
+        <div *ngIf="MyformControl.phone.errors.pattern">Phone must contain exactly 8 digits</div>
+
+      </div>
+
+    </div>
+    <div class="form-row border-bottom p-4 position-relative">
+      <label class="text-inverse font-12 text-uppercase"
+        >Birth Date<span class="text-danger">*</span></label
+      >
+      <div class="input-group date">
+        <input
+          type="date"
+          class="border-0 p-0 font-14 form-control"
+          id="dp"
+          [(ngModel)]="date"
+          placeholder="Select your birth date"
+          formControlName="date"
+          [ngClass]="{ 'is-invalid': submitted && MyformControl.date.errors }"
+        />
+        <div *ngIf="submitted && MyformControl.date.errors" class="invalid-feedback mb">
+          <div *ngIf="MyformControl.date.errors.required">Date is required.</div>
+        </div>
+      </div>
+    </div>
+    <div class="form-row border-bottom p-4">
+      <label class="text-inverse font-12 text-uppercase"
+        >Message<span class="text-danger">*</span></label
+      >
+
+      <textarea
+        col="1"
+        row="1"
+        class="border-0 p-0 font-weight-light font-14 form-control"
+        placeholder="Write down the Message"
+        formControlName="message"
+        [(ngModel)]="message"
+        [ngClass]="{ 'is-invalid': submitted && MyformControl.message.errors }"
+      ></textarea>
+      <div *ngIf="submitted && MyformControl.message.errors" class="invalid-feedback mb">
+        <div *ngIf="MyformControl.message.errors.required">Message is required.</div>
+      </div>
+    </div>
+
+    <button
+      type="submit"
+      class="w-100 m-0 border-0 py-4 font-14 font-weight-medium btn btn-danger text-center text-white text-uppercase"
+    >
+      <span>START Your Consultation Now</span>
+    </button>
+  </div>
+</form>

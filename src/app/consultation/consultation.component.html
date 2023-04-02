@@ -1,0 +1,56 @@
+<div class="card-deck card-style mt-4 p-5 mb-3">
+  <h2 class="text-center">On ligne Consultation </h2>
+  <div class="card">
+    <div class="card-body mt-3">
+      <h5 class="card-title">Symptoms:</h5>
+      <select class="form-control" (change)="onSelect($event)">
+        <option>Flu</option>
+        <option>Abdominal pain</option>
+        <option>Arm pain</option>
+        <option>Breathing difficulty</option>
+        <option>Excessive sweating</option>
+        <option>Fever</option>
+      </select>
+
+      <h5 class="card-title mt-3">Tests:</h5>
+      <div class="custom-control custom-radio">
+        <ul class="list-group">
+          <li class="list-group-item" *ngFor="let item of checklist">
+            <input
+              type="checkbox"
+              value="{{ item.id }}"
+              [checked]="item.isSelected"
+              (change)="isAllSelected(item)"
+            />
+            {{ item.value }}
+          </li>
+        </ul>
+      </div>
+
+      <h5 class="card-title mt-3">Investigations:</h5>
+      <select class="form-control" (change)="onSelectInverstigation($event)">
+        <option>Angiocardiography</option>
+        <option>Brain Scanning</option>
+        <option>cholecystography</option>
+        <option>echocardiography</option>
+        <option>magnetic resonance imaging</option>
+        <option>lung ventilation</option>
+        <option>ultrasound</option>
+      </select>
+
+      <button
+        type="submit"
+        (click)="onSubmit()"
+        class="btn btn-danger btn-lg mt-3 text-center"
+      >
+        Predict Now
+      </button>
+    </div>
+    <div class="card-footer">
+      <small class="text-muted" *ngIf="data">
+        you have {{ symptoms }} and you have to do {{ test }} and for the
+        investigation {{ investigation }}.
+      </small>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,27 @@
+{
+"patients": [{
+     "id":1,
+        "fistname": "bassem ",
+        "lastname": "sweki",
+        "email": "bassem.sweki@esprit.tn",
+        "phone": "46626255",
+        "date": "24/02/2023",
+        "message": "this is a test message",
+        "password":"azerty555"
+        
+    
+},
+{  "id":2,
+     
+        "fistname": "hassen ",
+        "lastname": "hassen",
+        "email": "hassen.jalleli@esprit.tn",
+        "phone": "28866156",
+        "date": "24/02/2023",
+        "message": "jahajah",
+        "password":"hassen123"
+        
+    
+}
+]
+}
